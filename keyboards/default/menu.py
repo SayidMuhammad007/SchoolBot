@@ -13,7 +13,7 @@ btnMenu = ReplyKeyboardMarkup(
         [
             KeyboardButton(text="Список уроков"),
         ],
-    ]
+    ], resize_keyboard=True
 )
 
 btnAdmin = ReplyKeyboardMarkup(
@@ -29,5 +29,5 @@ btnAdmin = ReplyKeyboardMarkup(
         [
             KeyboardButton(text="Список уроков")
         ]
-    ]
+    ], resize_keyboard=True
 )
