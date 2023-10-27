@@ -1,33 +1,13 @@
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardMarkup, InlineKeyboardButton
+def btns(request):
+    btn = ReplyKeyboardMarkup(resize_keyboard=True, row_width=2)
+    for i in request:
+        btn.insert(i)
+    return btn
 
-btnMenu = ReplyKeyboardMarkup(
-    keyboard=[
-        [
-            KeyboardButton(text="Школьные книги"),
-            KeyboardButton(text="Логические вопросы"),
-        ],
-        [
-            KeyboardButton(text="Книги для развития"),
-            KeyboardButton(text="Информация об учителях"),
-        ],
-        [
-            KeyboardButton(text="Список уроков"),
-        ],
-    ], resize_keyboard=True
-)
-
-btnAdmin = ReplyKeyboardMarkup(
-    keyboard=[
-        [
-            KeyboardButton(text="Классы"),
-            KeyboardButton(text="Логические вопросы"),
-        ],
-        [
-            KeyboardButton(text="Книги для развития"),
-            KeyboardButton(text="Школьные книги"),
-        ],
-        [
-            KeyboardButton(text="Список уроков")
-        ]
-    ], resize_keyboard=True
-)
+def btnInline(request):
+    keyboard = InlineKeyboardMarkup(row_width=2)
+    for i in request:
+        button = InlineKeyboardButton(i, callback_data=f"{i}")
+        keyboard.insert(button)
+    return keyboard
