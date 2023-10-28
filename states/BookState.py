@@ -12,3 +12,7 @@ class UpdateBookState(StatesGroup):
     file = State()
     caption = State()
     confirm = State()
+
+class DeleteBookState(StatesGroup):
+    id = State()
+    confirm = State()
