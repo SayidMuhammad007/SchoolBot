@@ -40,9 +40,16 @@ class Database:
         self.execute(sql, parameters=(grade, type), commit=True)
 
 
-    def selectGradesAll(self):
-        sql = "SELECT * FROM grades WHERE status = ?"
-        return self.execute(sql,(1,), fetchall=True)
+    def addBookDev(self, name: str, caption: str, file:str):
+
+        sql = """
+        INSERT INTO bookDev(name, caption, file) VALUES(?, ?, ?)
+        """
+        self.execute(sql, parameters=(name, caption, file), commit=True)
+
+    def selectAll(self, database):
+        sql = "SELECT * FROM {} WHERE status = ?".format(database)
+        return self.execute(sql, (1,), fetchall=True)
 
     def selectOne(self, grade_id):
         sql = "SELECT * FROM grades WHERE id = ?"

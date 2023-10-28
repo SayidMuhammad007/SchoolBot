@@ -11,13 +11,13 @@ ITEMS_PER_PAGE = 5
 data = []
 current_page = 0
 
-@dp.message_handler(text=text.btnGradeMenu[0])
+@dp.message_handler(text=text.btnBooksMenu[0])
 async def bot_echo(message: types.Message, state: FSMContext):
     global data  # Use the global data variable
     global current_page
 
     # Fetch the data from your database using find_orders function
-    dataa = db.selectAll("grades")
+    dataa = db.selectAll("bookDev")
     data = dataa
     # Calculate the start and end index for the current page
     start_idx = current_page * ITEMS_PER_PAGE
@@ -31,13 +31,13 @@ async def bot_echo(message: types.Message, state: FSMContext):
         await message.answer(text=text.empty)
 
 
-@dp.callback_query_handler(lambda c: c.data in ['prev', 'next'])
+@dp.callback_query_handler(lambda c: c.data in ['prev0', 'next0'])
 async def process_callback(callback_query: types.CallbackQuery, state: FSMContext):
     global current_page
     global data  # Use the global data variable
-    if callback_query.data == 'prev':
+    if callback_query.data == 'prev0':
         current_page = max(0, current_page - 1)
-    elif callback_query.data == 'next':
+    elif callback_query.data == 'next0':
         current_page = min(len(data) // ITEMS_PER_PAGE, current_page + 1)
     start_idx = current_page * ITEMS_PER_PAGE
     end_idx = (current_page + 1) * ITEMS_PER_PAGE
@@ -59,7 +59,7 @@ def check(start_idx, end_idx):
         t += 1
         if t > ITEMS_PER_PAGE or i >= len(data):
             break
-        msg += text.ConfirmGradeId(t, data[i][1], data[i][2])
+        msg += text.BookMsg(t, data[i][1])
 
     # Create an inline keyboard for navigation
     markup = InlineKeyboardMarkup(row_width=5)
@@ -70,18 +70,17 @@ def check(start_idx, end_idx):
         d += 1
         if d > ITEMS_PER_PAGE or i >= len(data):
             break
-        order_id = data[i][0]
-        print(order_id)
-        callback_data = f"grade_{order_id}"
+        book_id = data[i][0]
+        callback_data = f"bookDev_{book_id}"
         markup.insert(InlineKeyboardButton(d, callback_data=callback_data))
 
     # Add previous and next buttons if available
     if has_previous_page:
-        prev_button = InlineKeyboardButton(text.prev, callback_data="prev")
+        prev_button = InlineKeyboardButton(text.prev, callback_data="prev0")
         markup.add(prev_button)
 
     if has_next_page:
-        next_button = InlineKeyboardButton(text.next, callback_data="next")
+        next_button = InlineKeyboardButton(text.next, callback_data="next0")
         if has_previous_page:
             markup.insert(next_button)
         else:
