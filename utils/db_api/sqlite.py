@@ -51,9 +51,9 @@ class Database:
         sql = "SELECT * FROM {} WHERE status = ?".format(database)
         return self.execute(sql, (1,), fetchall=True)
 
-    def selectOne(self, grade_id):
-        sql = "SELECT * FROM grades WHERE id = ?"
-        return self.execute(sql,(grade_id,), fetchall=True)
+    def selectOne(self, id, table):
+        sql = "SELECT * FROM {} WHERE id = ?".format(table)
+        return self.execute(sql,(id,), fetchall=True)
 
     def updateGrade(self, grade, type, gradeId):
         sql = """

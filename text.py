@@ -63,3 +63,11 @@ def BookMsg(id, book):
 #{id}. {book}
     """
     return msg
+
+def BookAboutMsg(id, book, caption):
+    msg = f"""
+#{id}. <b>{book}</b>
+----------------
+{caption}
+    """
+    return msg
