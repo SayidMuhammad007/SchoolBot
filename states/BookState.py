@@ -5,3 +5,10 @@ class AddBookState(StatesGroup):
     file = State()
     caption = State()
     confirm = State()
+
+class UpdateBookState(StatesGroup):
+    id = State()
+    name = State()
+    file = State()
+    caption = State()
+    confirm = State()

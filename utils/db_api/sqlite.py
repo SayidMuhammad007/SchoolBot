@@ -61,6 +61,12 @@ class Database:
         """
         return self.execute(sql, parameters=(grade, type, gradeId), commit=True)
 
+    def updateBookD(self, name, caption, file, id):
+        sql = """
+        UPDATE bookDev SET name=?, caption=?, file=? WHERE id=?
+        """
+        return self.execute(sql, parameters=(name, caption, file, id), commit=True)
+
     def deleteGrade(self, gradeId):
         sql = """
         UPDATE grades SET status=? WHERE id=?
