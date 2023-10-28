@@ -47,3 +47,4 @@ async def bot_echo(callback: types.CallbackQuery, state:FSMContext):
         msg, btn = await auth(callback)
         await callback.message.delete()
         await callback.message.answer(text=text.cancel, reply_markup=btn)
+    await state.finish()

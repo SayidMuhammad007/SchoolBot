@@ -1,2 +1,4 @@
 from . import grades
-from . import newGrade
+from . import crud
+from . import list
+from . import getOne

@@ -11,3 +11,10 @@ def btnInline(request):
         button = InlineKeyboardButton(i, callback_data=f"{i}")
         keyboard.insert(button)
     return keyboard
+
+def btnInlineWithStatus(status, request, id):
+    keyboard = InlineKeyboardMarkup(row_width=2)
+    for i in request:
+        button = InlineKeyboardButton(i, callback_data=f"{status}_{i}_{id}")
+        keyboard.insert(button)
+    return keyboard

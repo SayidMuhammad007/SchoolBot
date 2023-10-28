@@ -1,8 +1,7 @@
 import sqlite3
 
-
 class Database:
-    def init(self, path_to_db="sqlite.db"):
+    def __init__(self, path_to_db="sqlite.db"):
         self.path_to_db = path_to_db
 
     @property
@@ -13,7 +12,6 @@ class Database:
         if not parameters:
             parameters = ()
         connection = self.connection
-        # connection.set_trace_callback(logger)
         cursor = connection.cursor()
         data = None
         cursor.execute(sql, parameters)
@@ -42,23 +40,22 @@ class Database:
         self.execute(sql, parameters=(grade, type), commit=True)
 
 
-    def select_product_by_user(self, user_id):
-        sql = "SELECT * FROM Products WHERE user_id = ?"
-        return self.execute(sql,(user_id,), fetchall=True)
+    def selectGradesAll(self):
+        sql = "SELECT * FROM grades WHERE status = ?"
+        return self.execute(sql,(1,), fetchall=True)
 
-    def check(self, user_id, id):
-        sql = "SELECT * FROM Products WHERE user_id = ? AND product_id = ?"
-        return self.execute(sql,(user_id, id,), fetchall=True)
+    def selectOne(self, grade_id):
+        sql = "SELECT * FROM grades WHERE id = ?"
+        return self.execute(sql,(grade_id,), fetchall=True)
 
-    def update_product(self, quantity, user_id, product_id):
-        # SQL_EXAMPLE = "UPDATE Users SET email=mail@gmail.com WHERE id=12345"
-
-        sql = f"""
-        UPDATE Products SET quantity=? WHERE user_id=? AND product_id=?
+    def updateGrade(self, grade, type, gradeId):
+        sql = """
+        UPDATE grades SET grade=?, type=? WHERE id=?
         """
-        return self.execute(sql, parameters=(quantity, user_id, product_id), commit=True)
+        return self.execute(sql, parameters=(grade, type, gradeId), commit=True)
 
-    def delete_products_by_user(self,user_id):
-        sql = f"DELETE FROM Products WHERE user_id = {user_id}"
-        return self.execute(sql,  commit=True)
-
+    def deleteGrade(self, gradeId):
+        sql = """
+        UPDATE grades SET status=? WHERE id=?
+        """
+        return self.execute(sql, parameters=(0, gradeId), commit=True)

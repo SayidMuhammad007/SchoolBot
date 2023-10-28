@@ -11,6 +11,16 @@ gradeType = "Выберите тип!"
 cancel = "❌ Отменено!"
 ####
 saved = "Сохранено"
+####
+empty = "Ничего не существует"
+####
+next = "Следующий"
+####
+prev = "Предыдущий"
+####
+delete = "Вы действительно удаляете?"
+####
+deleted = "Успешно удалено!"
 
 ########### buttons
 
@@ -23,11 +33,20 @@ btnMenu = ["Школьные книги", "Логические вопросы",
 btnAdmin = ['Классы', "Логические вопросы", "Книги для развития", "Школьные книги", "Список уроков"]
 #####
 btnGradeMenu = ["Список", "Добавить новое"]
+#####
+btnGradeUpdate = ["Изменить", "Удалить", "Назад"]
 
 ###function text
 def ConfirmGrade(grade, type):
     msg = f"""
 Класс: {grade}
+Тип: {type}
+    """
+    return msg
+
+def ConfirmGradeId(id, grade, type):
+    msg = f"""
+#{id}.Класс: {grade}
 Тип: {type}
     """
     return msg
