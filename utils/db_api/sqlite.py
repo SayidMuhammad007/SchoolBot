@@ -39,6 +39,12 @@ class Database:
         """
         self.execute(sql, parameters=(grade, type), commit=True)
 
+    def addLogicQuestion(self, question: str, answer: str):
+
+        sql = """
+        INSERT INTO logic_questions(question, answer) VALUES(?, ?)
+        """
+        self.execute(sql, parameters=(question, answer), commit=True)
 
     def addBookDev(self, name: str, caption: str, file:str):
 
