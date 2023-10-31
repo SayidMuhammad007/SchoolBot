@@ -80,6 +80,12 @@ class Database:
         """
         return self.execute(sql, parameters=(question, answer, gradeId), commit=True)
 
+    def updateSchoolB(self, grade, book, file, id):
+        sql = """
+        UPDATE school_book SET grade=?, book=?, file=?  WHERE id=?
+        """
+        return self.execute(sql, parameters=(grade, book, file, id), commit=True)
+
     def updateBookD(self, name, caption, file, id):
         sql = """
         UPDATE bookDev SET name=?, caption=?, file=? WHERE id=?

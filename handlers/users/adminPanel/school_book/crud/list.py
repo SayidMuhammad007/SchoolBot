@@ -59,7 +59,7 @@ def check(start_idx, end_idx):
         t += 1
         if t > ITEMS_PER_PAGE or i >= len(data):
             break
-        msg += text.QuestionsList(t, data[i][1], data[i][2])
+        msg += text.SchoolBook(data[i][1], data[i][2])
 
     # Create an inline keyboard for navigation
     markup = InlineKeyboardMarkup(row_width=5)

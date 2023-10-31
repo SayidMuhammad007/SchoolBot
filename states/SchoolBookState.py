@@ -5,3 +5,9 @@ class AddSchoolBook(StatesGroup):
     book = State()
     pdf = State()
     confirm = State()
+
+class UpdateSchoolBook(StatesGroup):
+    grade = State()
+    book = State()
+    pdf = State()
+    confirm = State()
