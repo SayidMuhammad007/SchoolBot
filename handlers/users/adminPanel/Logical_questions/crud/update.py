@@ -7,7 +7,7 @@ from keyboards.default.menu import btns, btnInline
 from loader import dp, db
 import text
 from states.GradeState import GradeState, UpdateGradeState, DeleteGrade
-from states.LogicQuestionState import UpdateLogicQuestionState
+from states.LogicQuestionState import UpdateLogicQuestionState, DeleteLogicQuestionState
 
 
 # Echo bot
@@ -28,7 +28,7 @@ async def handle_product_deletion(callback: types.CallbackQuery, state:FSMContex
     else:
         btn = btnInline(text.confirmBtn)
         await callback.message.edit_text(text=text.delete, reply_markup=btn)
-        await DeleteGrade.confirm.set()
+        await DeleteLogicQuestionState.confirm.set()
 
 @dp.message_handler(state=UpdateLogicQuestionState.question)
 async def bot_echo(message: types.Message, state:FSMContext):

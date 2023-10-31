@@ -9,3 +9,6 @@ class UpdateLogicQuestionState(StatesGroup):
     question = State()
     answer = State()
     confirm = State()
+
+class DeleteLogicQuestionState(StatesGroup):
+    confirm = State()
