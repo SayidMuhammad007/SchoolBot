@@ -85,6 +85,13 @@ def QuestionOne(grade, type):
     """
     return msg
 
+def SchoolBook(grade, type):
+    msg = f"""
+Класс: {grade}
+Название книги: {type}
+    """
+    return msg
+
 def BookMsg(id, book):
     msg = f"""
 #{id}. {book}
