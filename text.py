@@ -65,6 +65,20 @@ def ConfirmGradeId(id, grade, type):
     """
     return msg
 
+def QuestionsList(id, grade, type):
+    msg = f"""
+#{id}.Вопрос: {grade}
+Ответ: {type}
+    """
+    return msg
+
+def QuestionOne(grade, type):
+    msg = f"""
+Вопрос: {grade}
+Ответ: {type}
+    """
+    return msg
+
 def BookMsg(id, book):
     msg = f"""
 #{id}. {book}
