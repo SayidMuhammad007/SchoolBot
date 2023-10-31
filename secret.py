@@ -1,2 +1,2 @@
 ADMIN_ID = [5333351384]
-CHANNEL_ID = "yoshdasturchilar6516554654rg1"
+CHANNEL_ID = "databasefiles0101084aeds"

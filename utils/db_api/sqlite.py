@@ -46,6 +46,13 @@ class Database:
         """
         self.execute(sql, parameters=(question, answer), commit=True)
 
+    def addSchoolBook(self, grade: str, book: str, file:str):
+
+        sql = """
+        INSERT INTO school_book(grade, book, file) VALUES(?, ?, ?)
+        """
+        self.execute(sql, parameters=(grade, book, file), commit=True)
+
     def addBookDev(self, name: str, caption: str, file:str):
 
         sql = """

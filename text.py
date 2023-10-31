@@ -32,6 +32,10 @@ sendFile = "Пожалуйста, отправьте файл!"
 inputLogicQuestion = "Введите вопрос!"
 inputLogicAnswer = "Введите ответ!"
 
+# school book
+#####
+inputSchoolBookGrade = "Введите класс!"
+inputSchoolBookName = "Введите имя!"
 ########### buttons
 
 
