@@ -4,3 +4,8 @@ class LogicQuestionState(StatesGroup):
     question = State()
     answer = State()
     confirm = State()
+
+class UpdateLogicQuestionState(StatesGroup):
+    question = State()
+    answer = State()
+    confirm = State()
