@@ -8,7 +8,7 @@ from loader import dp, db
 import text
 from secret import CHANNEL_ID
 from states.LogicQuestionState import DeleteLogicQuestionState
-from states.SchoolBookState import UpdateSchoolBook
+from states.SchoolBookState import UpdateSchoolBook, DeleteSchoolBook
 
 
 # Echo bot
@@ -29,7 +29,7 @@ async def handle_product_deletion(callback: types.CallbackQuery, state:FSMContex
     else:
         btn = btnInline(text.confirmBtn)
         await callback.message.edit_text(text=text.delete, reply_markup=btn)
-        await DeleteLogicQuestionState.confirm.set()
+        await DeleteSchoolBook.confirm.set()
 
 @dp.message_handler(state=UpdateSchoolBook.grade)
 async def bot_echo(message: types.Message, state:FSMContext):

@@ -11,3 +11,6 @@ class UpdateSchoolBook(StatesGroup):
     book = State()
     pdf = State()
     confirm = State()
+
+class DeleteSchoolBook(StatesGroup):
+    confirm = State()

@@ -36,6 +36,8 @@ inputLogicAnswer = "Введите ответ!"
 #####
 inputSchoolBookGrade = "Введите класс!"
 inputSchoolBookName = "Введите имя!"
+#gradeList
+gradeList = ["5-класс", "6-класс", "7-класс", "8-класс", "9-класс", "10-класс", "11-класс"]
 ########### buttons
 
 
@@ -91,6 +93,7 @@ def SchoolBook(grade, type):
 Название книги: {type}
     """
     return msg
+
 
 def BookMsg(id, book):
     msg = f"""
