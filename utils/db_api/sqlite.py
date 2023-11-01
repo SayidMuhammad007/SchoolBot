@@ -53,6 +53,13 @@ class Database:
         """
         self.execute(sql, parameters=(grade, book, file), commit=True)
 
+    def addLesson(self, grade: str, day: str, lessons:str):
+
+        sql = """
+        INSERT INTO lessons(grade, day, lessons) VALUES(?, ?, ?)
+        """
+        self.execute(sql, parameters=(grade, day, lessons), commit=True)
+
     def addBookDev(self, name: str, caption: str, file:str):
 
         sql = """
@@ -71,6 +78,10 @@ class Database:
     def selectOne(self, id, table):
         sql = "SELECT * FROM {} WHERE id = ?".format(table)
         return self.execute(sql,(id,), fetchall=True)
+
+    def selectWhere(self, val, table, where):
+        sql = "SELECT * FROM {} WHERE {} = ?".format(table, where)
+        return self.execute(sql,(val,), fetchall=True)
 
     def updateGrade(self, grade, type, gradeId):
         sql = """

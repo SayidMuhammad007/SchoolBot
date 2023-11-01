@@ -36,8 +36,10 @@ inputLogicAnswer = "Введите ответ!"
 #####
 inputSchoolBookGrade = "Введите класс!"
 inputSchoolBookName = "Введите имя!"
+dayLesson = "Пришлите расписание уроков!"
 #gradeList
 gradeList = ["5-класс", "6-класс", "7-класс", "8-класс", "9-класс", "10-класс", "11-класс"]
+dayofweeks = ["Понедельник", "Вторник", "Вторник", "Четверг", "Пятница", "Суббота"]
 ########### buttons
 
 
@@ -58,6 +60,8 @@ btnLogicQuestion = ["Список Логические вопросы", "Доб�
 #####
 btnSchoolBook = ["Список Школьные книги", "Добавление новой Школьные книги", "Главное меню"]
 #####
+back = "Назад"
+
 ###function text
 def ConfirmGrade(grade, type):
     msg = f"""
@@ -70,6 +74,13 @@ def ConfirmGradeId(id, grade, type):
     msg = f"""
 #{id}.Класс: {grade}
 Тип: {type}
+    """
+    return msg
+
+def UserLogicQ(question, answer):
+    msg = f"""
+Вопрос: {question}
+Ответ: {answer}
     """
     return msg
 
@@ -112,5 +123,14 @@ def BookAboutMsg(id, book, caption):
 #{id}. <b>{book}</b>
 ----------------
 {caption}
+    """
+    return msg
+
+def DayLesson(day, grade, lesson):
+    msg = f"""
+Класс: {grade}
+День: {day}
+-------------
+{lesson}
     """
     return msg

@@ -1,2 +1,2 @@
-from . import list
+from . import view
 from . import getOne
