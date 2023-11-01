@@ -94,6 +94,12 @@ def SchoolBook(grade, type):
     """
     return msg
 
+def SchoolBookList(type, id):
+    msg = f"""
+#{id}. {type}
+    """
+    return msg
+
 
 def BookMsg(id, book):
     msg = f"""

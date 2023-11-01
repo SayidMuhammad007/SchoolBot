@@ -64,6 +64,10 @@ class Database:
         sql = "SELECT * FROM {} WHERE status = ?".format(database)
         return self.execute(sql, (1,), fetchall=True)
 
+    def selectAllByGrade(self, database, where, value):
+        sql = "SELECT * FROM {} WHERE {} = ?".format(database, where)
+        return self.execute(sql, (value,), fetchall=True)
+
     def selectOne(self, id, table):
         sql = "SELECT * FROM {} WHERE id = ?".format(table)
         return self.execute(sql,(id,), fetchall=True)
