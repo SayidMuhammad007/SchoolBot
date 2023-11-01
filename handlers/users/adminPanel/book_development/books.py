@@ -2,6 +2,7 @@ from aiogram import types
 
 import text
 from handlers.users.auth import authentication
+from handlers.users.userPanel.DevBook.devbookList import devBookList
 from keyboards.default.menu import btns
 from loader import dp
 
@@ -13,3 +14,5 @@ async def bot_echo(message: types.Message):
     if check == True:
         btn = btns(text.btnBooksMenu)
         await message.answer(text=text.choose, reply_markup=btn)
+    else:
+        await devBookList(message)
